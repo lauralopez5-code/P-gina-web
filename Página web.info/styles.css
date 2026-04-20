@@ -1,0 +1,197 @@
+/* Reset general */
+* {
+    margin: 0;                             /* Elimina márgenes por defecto */
+    padding: 0;                            /* Elimina relleno por defecto */
+    box-sizing: border-box;               /* Hace que el padding no afecte el ancho total */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente legible y moderna */
+  }
+  
+  /* Estilos del body */
+  body {
+    background-color: #f9fafb;            /* Fondo gris claro */
+    color: #333;                          /* Texto gris oscuro */
+    line-height: 1.6;                      /* Espaciado de líneas */
+  }
+  
+  /* Encabezado */
+  header {
+    position: relative; /* Necesario para poner una capa encima de la imagen */
+    background: url(jóvenes.png) center/cover no-repeat; 
+    /* Imagen centrada, que cubre todo el fondo y no se repite */
+    color: rgb(255, 255, 255);        /* Texto blanco */
+    text-align: center;  /* Centra el texto horizontalmente */
+    padding: 5rem 3rem;  /* Espacio interno arriba/abajo (5rem), lados (2rem) */
+    overflow: hidden;    /* Oculta lo que se salga del área */
+  }
+  
+  header::before {                  /* Colocar una capa oscura encima de la imágen de fondo.*/
+    content: '';                   /* Obligatorio para que el ::before funcione.*/
+    position: absolute;           /* Se posiciona encima de la imagen */
+    top: 0; left: 0;              /* Empieza desde la esquina superior izquierda */
+    width: 100%; height: 100%;   /* Cubre todo el header */
+    background: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.5)); 
+    /* Capa oscura semitransparente para que el texto se lea mejor */
+    z-index: 1;                   /* Asegura que esta capa este por detraz del texto. Pero por delante de laimágen de fondo.*/
+  }
+ 
+  header h1,
+  header p {
+    position: relative; /* Asegura que el texto esté encima de la capa oscura */
+    z-index: 2;         /* Prioridad más alta para que el texto se vea */
+  }
+  
+  header h1 {
+    font-size: 3rem;  /* Tamaño grande para destacar el título */
+    font-weight: bold; /* Texto grueso */
+    text-shadow: 0 0 10px rgb(226, 24, 165), 2px 2px 5px rgba(0,0,0,0.6); 
+    /* Efecto de brillo y sombra para que se vea bien sobre la imagen */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+  }
+  
+  header p {
+    font-size: 1.4rem;  /* Tamaño medio para el subtítulo */
+    font-weight: 300;   /* Texto más delgado */
+    color: #eee6eb;     /* Blanco casi puro */
+    text-shadow: 0 0 6px rgba(7, 7, 7, 0.6); 
+    /* Sombra suave para facilitar la lectura */
+  }
+  
+    
+  /* Navegación */
+  nav {
+    background-color: #e8d860;            /* Azul medio */
+    padding: 1rem;                         /* Espaciado interno */
+  }
+  
+  nav ul {
+    list-style: none;                     /* Quita viñetas de lista */
+    display: flex;                        /* Alineación en fila */
+    flex-wrap: wrap;                      /* Permite salto de línea */
+    justify-content: center;             /* Centra los enlaces */
+    gap: 1.5rem;                           /* Espacio entre enlaces */
+  }
+  
+  nav a {
+    color: white;                          /* Texto blanco */
+    text-decoration: none;                /* Sin subrayado */
+    font-weight: bold;                    /* Texto en negrita */
+    transition: color 0.3s;               /* Transición suave */
+  }
+  
+  nav a:hover {
+    color: #ff751f;                       /* Amarillo al pasar el mouse */
+  }
+  
+  /* Contenido principal */
+  main {
+    display: grid;                        /* Layout en grid */
+    grid-template-columns: 1fr 3fr;       /* Aside 1 parte, section 3 partes */
+    gap: 2rem;                             /* Espacio entre columnas */
+    padding: 2rem;                         /* Espaciado interno */
+  }
+  
+  /* Aside lateral */
+ 
+  aside {
+    background-size: cover;              /* Cubre el fondo sin distorsión */
+    background-position: center;         /* Centra la imagen */
+    border-radius: 12px;                 /* Bordes suaves */
+    overflow: hidden;                    /* Nada se desborda */
+    position: relative;                  /* Para capas internas */
+    padding: 1rem;
+    min-height: 300px;                   /* Altura mínima para equilibrio visual */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;            /* Centra el contenido verticalmente */
+    color: white;
+  }
+  
+  /* Capa oscura sutil para mejorar contraste */
+  aside::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(253, 0, 126, 0.941);   /* Azul oscuro translúcido */
+    z-index: 1;
+  }
+  
+  /* Contenido del aside */
+  aside * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Título elegante */
+  aside h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40rem;
+    color: #45e6ff;                     
+    text-align: left;
+  }
+  
+  /* Lista de enlaces */
+  aside ul {
+    list-style: none;
+    padding: ;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+  
+  aside li a {
+    color: #ca8bac;                     /* Gris claro para suavidad */
+    text-decoration: none;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  aside li a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  
+  /* Contenedores dentro de section */
+  section > div {
+    background-color:#e9afdd;              /* Fondo blanco */
+    padding: 2rem;                         /* Espaciado interno */
+    margin-bottom: 2rem;                  /* Separación inferior */
+    border-radius: 10px;                  /* Bordes redondeados */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);/* Sombra ligera */
+  }
+  
+  /* Títulos */
+  h2 {
+    color: #1e293b;                       /* Azul oscuro-grisáceo */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-bottom: 2rem; /* Espacio debajo del título */                 /* Espacio debajo del título */
+  }
+
+  canvas {
+    width: 100% !important; /* El canvas ocupará el 100% del ancho disponible (con !important para sobrescribir cualquier otro estilo) */
+    height: auto !important; /* La altura se ajusta automáticamente según el ancho (mantiene proporción) */
+  }
+  
+  /* Pie de página */
+  footer {
+    background-color: #7A88FE;            /* Mismo fondo que header */
+    color: white;                          /* Texto blanco */
+    text-align: center;                    /* Centrado */
+    padding: 1rem;                         /* Espaciado interno */
+    margin-top: 2rem;                      /* Separación del contenido */
+  }
+  
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;         /* Cambia a una sola columna */
+    }
+  
+    nav ul {
+      flex-direction: column;             /* Enlaces en columna */
+      align-items: center;                /* Centrado */
+    }
+  }
